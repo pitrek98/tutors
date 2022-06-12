@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('subjects', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('tutors', function (Blueprint $table) {
+            $table->bigInteger("subject_id")->nullable()->unsigned();
+            $table->foreign("subject_id")->references('id')->on('subjects');
         });
     }
 
@@ -27,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subjects');
+        Schema::table('tutors', function (Blueprint $table) {
+            $table->dropForeign("tutors_subject_id_foreign");
+            $table->dropColumn("subject_id");
+        });
     }
 };

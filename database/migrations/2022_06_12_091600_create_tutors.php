@@ -17,7 +17,6 @@ return new class extends Migration
         Schema::create('tutors', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer("subject");
             $table->integer("mark")->nullable();
             $table->text("description")->nullable();
             $table->timestamps();
