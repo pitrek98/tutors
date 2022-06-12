@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="border-style: double">
         <h3>Korepetytorzy</h3>
         <div class="navigation"></div>
         <div class="tutors">
@@ -27,6 +27,7 @@
                         <th>Ocena</th>
                         <th>Szczegóły</th>
                         <th>Przedmiot</th>
+                        <th>Wyświetl szczegóły</th>
                     </tr>
                 </thead>
 
@@ -38,6 +39,8 @@
                             <td>{{ $tutor->mark }}</td>
                             <td>{{ $tutor->description }}</td>
                             <td>{{ $tutor->subject->name }}</td>
+                            <td><button><a href="{{ route('tutors.show', ['id' => $tutor->id]) }}">Wyświetl
+                                        korepetytora</a></button></td>
                         </tr>
                     @endforeach
                 </tbody>

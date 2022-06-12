@@ -9,7 +9,8 @@
 </head>
 
 <body>
-
+    <h1 style="color:blueviolet; background-color:black">STRONA GDZIE MOŻESZ ZNALEŹĆ SOBIE KOREPETYTORA JAK CHCESZ</h1>
+    <a href="{{ route('tutors.list') }}">Lista korepetytorów</a>
 </body>
 
 </html>

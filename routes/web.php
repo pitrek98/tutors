@@ -19,6 +19,8 @@ use App\Http\Controllers\Tutors\TutorController;
 
 Route::group(['prefix' => '/tutors/', 'as' => 'tutors.'], function () {
     Route::get('list', [TutorsController::class, 'list'])->name('list');
+
+    Route::get('show/{id}', [TutorController::class, 'show'])->name('show');
 });
 
 Route::get('/', function () {
