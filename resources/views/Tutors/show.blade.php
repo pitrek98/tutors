@@ -15,7 +15,7 @@
         <li>Imię i nazwisko: {{ $tutor->name }}</li>
         <li>Ocena: {{ $tutor->mark }}</li>
         <li>Opis: {{ $tutor->description }}</li>
-        <li>Przedmiot: {{ $tutor->subject_id }}</li>
+        <li>Przedmiot: {{ $tutor->subject->name }}</li>
     </ul>
 </body>
 
