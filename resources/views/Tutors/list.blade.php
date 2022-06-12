@@ -14,6 +14,11 @@
         <div class="navigation"></div>
         <div class="tutors">
             <div class="filters"></div>
+            <form action="" method="GET">
+                <label for="subject">Przedmiot: </label>
+                <input type="text" name="subject" id="subject">
+                <button action="submit">Filtruj</button>
+            </form>
             <table>
                 <thead>
                     <tr>
@@ -32,7 +37,7 @@
                             <td>{{ $tutor->name }}</td>
                             <td>{{ $tutor->mark }}</td>
                             <td>{{ $tutor->description }}</td>
-                            <td>{{ $tutor->subject_id }}</td>
+                            <td>{{ $tutor->subject->name }}</td>
                         </tr>
                     @endforeach
                 </tbody>
