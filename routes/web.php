@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Tutors\TutorsController;
+use App\Http\Controllers\Tutors\TutorController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::group(['prefix' => '/tutors/', 'as' => 'tutors.'], function () {
+    Route::get('list', [TutorsController::class, 'list'])->name('list');
+});
 
 Route::get('/', function () {
     return view('home');
