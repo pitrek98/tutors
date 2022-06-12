@@ -25,7 +25,6 @@
                         <th>Id</th>
                         <th>Imię i nazwisko</th>
                         <th>Ocena</th>
-                        <th>Szczegóły</th>
                         <th>Przedmiot</th>
                         <th>Wyświetl szczegóły</th>
                     </tr>
@@ -37,7 +36,6 @@
                             <td>{{ $tutor->id }}</td>
                             <td>{{ $tutor->name }}</td>
                             <td>{{ $tutor->mark }}</td>
-                            <td>{{ $tutor->description }}</td>
                             <td>{{ $tutor->subject->name }}</td>
                             <td><button><a href="{{ route('tutors.show', ['id' => $tutor->id]) }}">Wyświetl
                                         korepetytora</a></button></td>
