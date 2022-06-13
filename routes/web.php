@@ -23,6 +23,10 @@ Route::group(['prefix' => '/tutors/', 'as' => 'tutors.'], function () {
     Route::get('show/{id}', [TutorController::class, 'show'])->name('show');
 
     Route::post('destroy/{id}', [TutorController::class,  'destroy'])->name('destroy');
+
+    Route::get('create', [TutorController::class, 'getCreateView'])->name('getCreateView');
+
+    Route::post('create', [TutorController::class, 'create'])->name('create');
 });
 
 Route::get('/', function () {

@@ -29,4 +29,17 @@ class TutorController extends Controller
         $this->tutorService->destroy($id);
         return redirect()->route('tutors.list');
     }
+
+    public function getCreateView()
+    {
+        return view('tutors.create');
+    }
+
+    public function create(Request $request)
+    {
+        // dd($request->all());
+        $tutor = $request->all();
+        $this->tutorService->create($tutor);
+        return redirect()->route('tutors.list');
+    }
 }
