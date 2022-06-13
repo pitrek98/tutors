@@ -17,4 +17,9 @@ class TutorService
     {
         return $this->tutorModel->with('subject')->find($id);
     }
+
+    public function destroy($id)
+    {
+        return $this->tutorModel->destroy($id);
+    }
 }

@@ -27,6 +27,7 @@
                         <th>Ocena</th>
                         <th>Przedmiot</th>
                         <th>Wyświetl szczegóły</th>
+                        <th>Usuń korepetytora</th>
                     </tr>
                 </thead>
 
@@ -39,6 +40,10 @@
                             <td>{{ $tutor->subject->name }}</td>
                             <td><button><a href="{{ route('tutors.show', ['id' => $tutor->id]) }}">Wyświetl
                                         korepetytora</a></button></td>
+                            <form action='{{ route('tutors.destroy', ['id' => $tutor->id]) }}' method='POST'>
+                                @csrf
+                                <td><button action='submit'>Usuń korepetytora</button></td>
+                            </form>
                         </tr>
                     @endforeach
                 </tbody>

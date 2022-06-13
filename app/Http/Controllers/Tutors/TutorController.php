@@ -23,4 +23,10 @@ class TutorController extends Controller
         $tutor = $this->tutorService->show($id);
         return view('Tutors.show', ['tutor' => $tutor]);
     }
+
+    public function destroy($id)
+    {
+        $this->tutorService->destroy($id);
+        return redirect()->route('tutors.list');
+    }
 }
