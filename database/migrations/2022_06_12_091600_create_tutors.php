@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("name");
             $table->integer("mark")->nullable();
             $table->text("description")->nullable();
+            $table->text("mail")->nullable();
             $table->timestamps();
         });
     }

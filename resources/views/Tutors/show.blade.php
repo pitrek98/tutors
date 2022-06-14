@@ -16,6 +16,7 @@
         <li>Ocena: {{ $tutor->mark }}</li>
         <li>Opis: {{ $tutor->description }}</li>
         <li>Przedmiot: {{ $tutor->subject->name }}</li>
+        <li>Miejsce na opinie:</li>
     </ul>
 </body>
 
