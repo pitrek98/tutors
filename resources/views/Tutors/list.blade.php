@@ -13,12 +13,21 @@
         <h3>Korepetytorzy</h3>
         <div class="navigation"></div>
         <div class="tutors">
-            <div class="filters"></div>
-            <form action="" method="GET">
-                <label for="name">Imię i nazwisko: </label>
-                <input type="text" name="name" id="name">
-                <button action="submit">Filtruj</button>
-            </form>
+            <div class="filters" style='float: left;'>
+                <form action="" method="GET">
+                    <label for="name">Imię i nazwisko: </label>
+                    <input type="text" name="name" id="name">
+                    <label for="subject_id">Przedmiot:</label>
+                    <select name="subject_id" id="subject_id">
+                        <option value="all">Wszystkie</option>
+                        @foreach ($subjects as $subject)
+                            <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                        @endforeach
+                    </select>
+                    <button action="submit">Filtruj</button>
+                </form>
+            </div>
+            <br><br>
             <table>
                 <thead>
                     <tr>

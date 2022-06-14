@@ -20,4 +20,12 @@ class Tutor extends Model
     {
         return $query->where('name', 'like', '%' . $name . '%');
     }
+
+    public function scopeFilterBySubjectId($query, $subject_id)
+    {
+        if ($subject_id == 'all') {
+            return $query;
+        }
+        return $query->where('subject_id', '=', $subject_id);
+    }
 }

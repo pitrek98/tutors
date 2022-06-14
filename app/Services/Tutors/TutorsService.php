@@ -13,8 +13,8 @@ class TutorsService
         $this->tutorModel = $tutorModel;
     }
 
-    public function list($name, $mark, $description)
+    public function list($name, $mark, $description, $subject_id)
     {
-        return $this->tutorModel->FilterByName($name)->with('subject')->get();
+        return $this->tutorModel->FilterByName($name)->filterBySubjectId($subject_id)->with('subject')->get();
     }
 }
