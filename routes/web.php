@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Tutors\TutorsController;
 use App\Http\Controllers\Tutors\TutorController;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,15 @@ Route::group(['prefix' => '/tutors/', 'as' => 'tutors.'], function () {
 
         Route::post('destroy/{id}', [SubjectController::class, 'destroy'])->name('destroy');
     });
+});
+
+Route::get('/sendmail', function (Request $request) {
+    $ip = $request->ip();
+    Mail::raw('Hi user, a new login into your account from the IP Address: ' . $ip, function ($message) {
+        $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+        $message->to('piotrekszymiec@gmail.com', 'User Name');
+    });
+    return redirect()->route('tutors.list');
 });
 
 Route::get('/', function () {

@@ -9,7 +9,7 @@ class Tutor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'mark', 'desription', 'subject_id'];
+    protected $fillable = ['name', 'mark', 'description', 'subject_id'];
 
     public function subject()
     {

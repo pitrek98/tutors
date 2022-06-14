@@ -37,7 +37,7 @@
                     @endforeach
                 </select>
             </div>
-            <button type="submit">Dodaj</button>
+            <button type="submit">Zapisz</button>
         </form>
     </div>
 </body>
