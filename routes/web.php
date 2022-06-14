@@ -30,6 +30,10 @@ Route::group(['prefix' => '/tutors/', 'as' => 'tutors.'], function () {
 
     Route::post('create', [TutorController::class, 'create'])->name('create');
 
+    Route::get('edit/{id}', [TutorController::class, 'getEditView'])->name('getEditView');
+
+    Route::post('edit/{id}', [TutorController::class, 'edit'])->name('edit');
+
     Route::group(['prefix' => '/subjects/', 'as' => 'subjects.'], function () {
         Route::get('list', [SubjectsController::class, 'list'])->name('list');
 

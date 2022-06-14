@@ -27,4 +27,10 @@ class TutorService
     {
         $this->tutorModel::create($tutor);
     }
+
+    public function edit($id, $newTutor)
+    {
+        $tutor = $this->show($id);
+        $tutor->update($newTutor);
+    }
 }

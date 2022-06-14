@@ -45,4 +45,18 @@ class TutorController extends Controller
         $this->tutorService->create($tutor);
         return redirect()->route('tutors.list');
     }
+
+    public function getEditView($id)
+    {
+        $subjects = $this->subjectsService->list();
+        $tutor = $this->tutorService->show($id);
+        return view('Tutors.edit', ['subjects' => $subjects, 'tutor' => $tutor]);
+    }
+
+    public function edit($id, Request $request)
+    {
+        $newTutor = $request->all();
+        $this->tutorService->edit($id, $newTutor);
+        return redirect()->route('tutors.list');
+    }
 }

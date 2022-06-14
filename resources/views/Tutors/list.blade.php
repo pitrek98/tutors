@@ -40,6 +40,7 @@
                         <th>Przedmiot</th>
                         <th>Wyświetl szczegóły</th>
                         <th>Usuń korepetytora</th>
+                        <th>Edytuj korepetytora</th>
                     </tr>
                 </thead>
 
@@ -56,6 +57,8 @@
                                 @csrf
                                 <td><button action='submit'>Usuń korepetytora</button></td>
                             </form>
+                            <td><button><a href="{{ route('tutors.edit', ['id' => $tutor->id]) }}">Edytuj
+                                        korepetytora</a></button></td>
                         </tr>
                     @endforeach
                 </tbody>
