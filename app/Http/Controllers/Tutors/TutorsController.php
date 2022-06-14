@@ -7,14 +7,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Services\Tutors\TutorsService;
+use App\Services\Tutors\SubjectsService;
+
 
 class TutorsController extends Controller
 {
     public TutorsService $tutorsService;
+    public SubjectsService $subjectsService;
 
-    public function __construct(TutorsService $tutorsService)
+    public function __construct(TutorsService $tutorsService, SubjectsService $subjectsService)
     {
         $this->tutorsService = $tutorsService;
+        $this->subjectsService = $subjectsService;
     }
 
     public function list(Request $request)
@@ -25,7 +29,8 @@ class TutorsController extends Controller
         $subject_id = $request->get('subject_id');
         // $tutors = DB::table('tutors')->get();
         $tutors = $this->tutorsService->list($name, $mark, $description, $subject_id);
-        $subjects = DB::table('subjects')->get();
+        // $subjects = DB::table('subjects')->get();
+        $subjects = $this->subjectsService->list();
         return view("tutors.list", ["tutors" => $tutors, "subjects" => $subjects]);
     }
 }

@@ -23,7 +23,7 @@ class Tutor extends Model
 
     public function scopeFilterBySubjectId($query, $subject_id)
     {
-        if ($subject_id == 'all') {
+        if ($subject_id == '') {
             return $query;
         }
         return $query->where('subject_id', '=', $subject_id);

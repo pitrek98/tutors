@@ -4,17 +4,18 @@ namespace App\Http\Controllers\Tutors;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Services\Tutors\TutorService;
-use App\Services\Tutors\TutorsService;
+use App\Services\Tutors\SubjectsService;
 
 class TutorController extends Controller
 {
     public TutorService $tutorService;
+    public SubjectsService $subjectsService;
 
-    public function __construct(TutorService $tutorService)
+    public function __construct(TutorService $tutorService, SubjectsService $subjectsService)
     {
         $this->tutorService = $tutorService;
+        $this->subjectsService = $subjectsService;
     }
 
     public function show($id)
@@ -32,7 +33,9 @@ class TutorController extends Controller
 
     public function getCreateView()
     {
-        return view('tutors.create');
+        // $subjects = DB::table('subjects')->get();
+        $subjects = $this->subjectsService->list();
+        return view('tutors.create', ['subjects' => $subjects]);
     }
 
     public function create(Request $request)

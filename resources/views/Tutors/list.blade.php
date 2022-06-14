@@ -11,7 +11,10 @@
 <body>
     <div class="container" style="border-style: double">
         <h3>Korepetytorzy</h3>
-        <div class="navigation"></div>
+        <div class="navigation">
+            <a href="/">Strona Główna</a><br>
+            <a href='{{ route('tutors.create') }}'>Dodaj korepetytora</a><br><br>
+        </div>
         <div class="tutors">
             <div class="filters" style='float: left;'>
                 <form action="" method="GET">
@@ -19,7 +22,7 @@
                     <input type="text" name="name" id="name">
                     <label for="subject_id">Przedmiot:</label>
                     <select name="subject_id" id="subject_id">
-                        <option value="all">Wszystkie</option>
+                        <option value="">Wszystkie</option>
                         @foreach ($subjects as $subject)
                             <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                         @endforeach

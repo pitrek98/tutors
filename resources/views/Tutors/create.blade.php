@@ -26,8 +26,12 @@
                 <input type="text" name="description" id="description">
             </div>
             <div>
-                <label for="subject_id">Przedmiot</label>
-                <input type="number" name="subject_id" id="subject_id">
+                <label for="subject_id">Przedmiot:</label>
+                <select name="subject_id" id="subject_id">
+                    @foreach ($subjects as $subject)
+                        <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <button type="submit">Dodaj</button>
         </form>
