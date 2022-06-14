@@ -17,4 +17,9 @@ class SubjectService
     {
         $this->subjectModel::create($subject);
     }
+
+    public function show($id)
+    {
+        return $this->subjectModel->with('tutors')->find($id);
+    }
 }

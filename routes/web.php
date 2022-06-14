@@ -36,6 +36,8 @@ Route::group(['prefix' => '/tutors/', 'as' => 'tutors.'], function () {
         Route::get('create', [SubjectController::class, 'getCreateView'])->name('getCreateView');
 
         Route::post('create', [SubjectController::class, 'create'])->name('create');
+
+        Route::get('show/{id}', [SubjectController::class, 'show'])->name('show');
     });
 });
 

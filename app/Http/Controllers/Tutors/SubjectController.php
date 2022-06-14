@@ -10,9 +10,9 @@ use PhpParser\Node\Expr\FuncCall;
 
 class SubjectController extends Controller
 {
-    public Subject $subjectService;
+    public SubjectService $subjectService;
 
-    public function __construct(Subject $subjectService)
+    public function __construct(SubjectService $subjectService)
     {
         $this->subjectService = $subjectService;
     }
@@ -27,5 +27,11 @@ class SubjectController extends Controller
         $subject = $request->all();
         $this->subjectService->create($subject);
         return redirect()->route('subjects.list');
+    }
+
+    public function show($id)
+    {
+        $subject = $this->subjectService->show($id);
+        return view('tutors.subjects.show', ['subject' => $subject]);
     }
 }

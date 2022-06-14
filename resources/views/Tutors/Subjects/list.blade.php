@@ -21,6 +21,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Nazwa</th>
+                        <th>Lista korepetytorów</th>
                     </tr>
                 </thead>
 
@@ -29,12 +30,8 @@
                         <tr>
                             <td>{{ $subject->id }}</td>
                             <td>{{ $subject->name }}</td>
-                            {{-- <td><button><a href="{{ route('tutors.show', ['id' => $tutor->id]) }}">Wyświetl
-                                        korepetytora</a></button></td>
-                            <form action='{{ route('tutors.destroy', ['id' => $tutor->id]) }}' method='POST'>
-                                @csrf
-                                <td><button action='submit'>Usuń korepetytora</button></td>
-                            </form> --}}
+                            <td><a href="{{ route('tutors.subjects.show', ['id' => $subject->id]) }}">Wyświetl
+                                    korepetytorów</a></td>
                         </tr>
                     @endforeach
                 </tbody>
