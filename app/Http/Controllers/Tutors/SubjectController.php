@@ -26,7 +26,13 @@ class SubjectController extends Controller
     {
         $subject = $request->all();
         $this->subjectService->create($subject);
-        return redirect()->route('subjects.list');
+        return redirect()->route('tutors.subjects.list');
+    }
+
+    public function destroy($id)
+    {
+        $this->subjectService->destroy($id);
+        return redirect()->route('tutors.subjects.list');
     }
 
     public function show($id)

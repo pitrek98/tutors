@@ -22,9 +22,9 @@
                         <th>Id</th>
                         <th>Nazwa</th>
                         <th>Lista korepetytorów</th>
+                        {{-- <th>Usuwanie przedmiotu</th> --}}
                     </tr>
                 </thead>
-
                 <tbody>
                     @foreach ($subjects as $subject)
                         <tr>
@@ -32,6 +32,11 @@
                             <td>{{ $subject->name }}</td>
                             <td><a href="{{ route('tutors.subjects.show', ['id' => $subject->id]) }}">Wyświetl
                                     korepetytorów</a></td>
+                            {{-- <form action="{{ route('tutors.subjects.destroy', ['id' => $subject->id]) }}"
+                                method="POST">
+                                @csrf
+                                <td><button>Usuń</button></td>
+                            </form> --}}
                         </tr>
                     @endforeach
                 </tbody>

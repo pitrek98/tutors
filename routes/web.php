@@ -38,6 +38,8 @@ Route::group(['prefix' => '/tutors/', 'as' => 'tutors.'], function () {
         Route::post('create', [SubjectController::class, 'create'])->name('create');
 
         Route::get('show/{id}', [SubjectController::class, 'show'])->name('show');
+
+        Route::post('destroy/{id}', [SubjectController::class, 'destroy'])->name('destroy');
     });
 });
 

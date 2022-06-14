@@ -19,7 +19,7 @@
             </div>
             <div>
                 <label for="mark">Ocena</label>
-                <input type="number" name="mark" id="mark">
+                <input type="number" name="mark" id="mark" min="1" max="6">
             </div>
             <div>
                 <label for="description">Opis</label>

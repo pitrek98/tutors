@@ -18,6 +18,11 @@ class SubjectService
         $this->subjectModel::create($subject);
     }
 
+    public function destroy($id)
+    {
+        $this->subjectModel->destroy($id);
+    }
+
     public function show($id)
     {
         return $this->subjectModel->with('tutors')->find($id);
