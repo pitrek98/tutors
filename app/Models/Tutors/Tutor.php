@@ -15,4 +15,9 @@ class Tutor extends Model
     {
         return $this->belongsTo(Subject::class);
     }
+
+    public function scopeFilterByName($query, $name)
+    {
+        return $query->where('name', 'like', '%' . $name . '%');
+    }
 }

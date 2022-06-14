@@ -15,6 +15,6 @@ class TutorsService
 
     public function list($name, $mark, $description)
     {
-        return $this->tutorModel->with('subject')->get();
+        return $this->tutorModel->FilterByName($name)->with('subject')->get();
     }
 }

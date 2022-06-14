@@ -15,8 +15,8 @@
         <div class="tutors">
             <div class="filters"></div>
             <form action="" method="GET">
-                <label for="subject">Przedmiot: </label>
-                <input type="text" name="subject" id="subject">
+                <label for="name">Imię i nazwisko: </label>
+                <input type="text" name="name" id="name">
                 <button action="submit">Filtruj</button>
             </form>
             <table>
@@ -37,8 +37,7 @@
                             <td>{{ $tutor->id }}</td>
                             <td>{{ $tutor->name }}</td>
                             <td>{{ $tutor->mark }}</td>
-                            {{-- <td>{{ $tutor->subject->name }}</td> --}}
-                            <td>{{ $tutor->subject_id }}</td>
+                            <td>{{ $tutor->subject->name }}</td>
                             <td><button><a href="{{ route('tutors.show', ['id' => $tutor->id]) }}">Wyświetl
                                         korepetytora</a></button></td>
                             <form action='{{ route('tutors.destroy', ['id' => $tutor->id]) }}' method='POST'>
