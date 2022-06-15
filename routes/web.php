@@ -48,14 +48,17 @@ Route::group(['prefix' => '/tutors/', 'as' => 'tutors.'], function () {
     });
 });
 
-Route::get('/sendmail', function (Request $request) {
-    $ip = $request->ip();
-    Mail::raw('Hi user, a new login into your account from the IP Address: ' . $ip, function ($message) {
+Route::get('mail/{id}', [TutorController::class, 'mail'])->name('mail');
+
+Route::post('/mail/{id}', function (Request $request) {
+    $content = $request->content;
+    $email = $request->email;
+    Mail::raw($content, function ($message) {
         $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
-        $message->to('piotrekszymiec@gmail.com', 'User Name');
+        $message->to('prukioksi@gmail.com', 'User Name');
     });
     return redirect()->route('tutors.list');
-});
+})->name('sendmail');
 
 Route::get('/', function () {
     return view('home');

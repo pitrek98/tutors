@@ -41,6 +41,7 @@
                         <th>Wyświetl szczegóły</th>
                         <th>Usuń korepetytora</th>
                         <th>Edytuj korepetytora</th>
+                        <th>Kontakt</th>
                     </tr>
                 </thead>
 
@@ -59,6 +60,8 @@
                             </form>
                             <td><button><a href="{{ route('tutors.edit', ['id' => $tutor->id]) }}">Edytuj
                                         korepetytora</a></button></td>
+                            <td><button><a href="{{ route('mail', ['id' => $tutor->id]) }}">Napisz maila</a></button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

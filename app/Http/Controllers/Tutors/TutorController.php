@@ -59,4 +59,14 @@ class TutorController extends Controller
         $this->tutorService->edit($id, $newTutor);
         return redirect()->route('tutors.list');
     }
+
+    public function mail($id)
+    {
+        $email = $this->tutorService->show($id)['mail'];
+        return view('mail', ['email' => $email, 'id' => $id]);
+    }
+
+    public function sendmail($id, $content)
+    {
+    }
 }
