@@ -19,12 +19,16 @@
             <div class="filters" style='float: left;'>
                 <form action="" method="GET">
                     <label for="name">Imię i nazwisko: </label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" value="{{ $values['name'] }}">
                     <label for="subject_id">Przedmiot:</label>
                     <select name="subject_id" id="subject_id">
                         <option value="">Wszystkie</option>
                         @foreach ($subjects as $subject)
-                            <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                            @if ($subject->id == $values['subject_id'])
+                                <option value="{{ $subject->id }}" selected>{{ $subject->name }}</option>
+                            @else
+                                <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                            @endif
                         @endforeach
                     </select>
                     <button action="submit">Filtruj</button>

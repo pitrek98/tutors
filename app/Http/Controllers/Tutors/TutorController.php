@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Tutors\TutorService;
 use App\Services\Tutors\SubjectsService;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redis;
 
 class TutorController extends Controller
 {
@@ -66,7 +68,14 @@ class TutorController extends Controller
         return view('mail', ['email' => $email, 'id' => $id]);
     }
 
-    public function sendmail($id, $content)
+    public function sendmail(Request $request)
     {
+        $content = $request->content;
+        $email = $request->email;
+        Mail::raw($content, function ($message) {
+            $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+            $message->to('piotrekszymiec@gmail.com', 'User Name');
+        });
+        return redirect()->route('tutors.list');
     }
 }
