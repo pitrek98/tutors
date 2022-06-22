@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\Tutors\SubjectController;
 use App\Http\Controllers\Tutors\SubjectsController;
 use Illuminate\Support\Facades\Route;
@@ -50,7 +51,9 @@ Route::group(['prefix' => '/tutors/', 'as' => 'tutors.'], function () {
 
 Route::get('mail/{id}', [TutorController::class, 'mail'])->name('mail');
 
-Route::post('/mail/{id}', [TutorController::class, 'sendmail'])->name('sendmail');
+// Route::post('/mail/{id}', [TutorController::class, 'sendmail'])->name('sendmail');
+
+Route::post('/send-email', [MailController::class, 'sendEmail'])->name('email.send');
 
 Route::get('/', function () {
     return view('home');

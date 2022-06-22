@@ -9,11 +9,16 @@
 </head>
 
 <body>
-    <h3>Mail do: {{ $email }}</h3>
-    <form action="{{ route('mail', ['id' => $id]) }}" method="POST">
+    <h3>Mail do: {{ $name }}</h3>
+    <form action="{{ route('email.send') }}" method="POST">
         @csrf
-        <label for="content">Treść maila:</label>
-        <input type="text" name="content" id="content" style="width:300px; height:100px">
+        <input type="text" name="email" id="email" value="{{ $email }}" hidden>
+        <label for="username">Nazwa użytkownika:</label>
+        <input type="text" name="username" id="username">
+        <label for="title">Tytuł:</label>
+        <input type="text" name="title" id="title">
+        <label for="message">Treść maila:</label>
+        <input type="text" name="message" id="message" style="width:300px; height:100px">
         <br>
         <button action="submit">Wyślij</button>
     </form>

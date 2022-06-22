@@ -28,9 +28,7 @@ class TutorsController extends Controller
         $description = $request->get('description');
         $subject_id = $request->get('subject_id');
         $values = ["name" => $name, "mark" => $mark, "description" => $description, "subject_id" => $subject_id];
-        // $tutors = DB::table('tutors')->get();
         $tutors = $this->tutorsService->list($name, $mark, $description, $subject_id);
-        // $subjects = DB::table('subjects')->get();
         $subjects = $this->subjectsService->list();
         return view("tutors.list", ["tutors" => $tutors, "subjects" => $subjects, "values" => $values]);
     }

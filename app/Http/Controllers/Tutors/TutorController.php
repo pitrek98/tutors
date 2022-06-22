@@ -22,7 +22,6 @@ class TutorController extends Controller
 
     public function show($id)
     {
-        // $tutor = DB::table('tutors')->find($id);
         $tutor = $this->tutorService->show($id);
         return view('Tutors.show', ['tutor' => $tutor]);
     }
@@ -35,14 +34,12 @@ class TutorController extends Controller
 
     public function getCreateView()
     {
-        // $subjects = DB::table('subjects')->get();
         $subjects = $this->subjectsService->list();
         return view('tutors.create', ['subjects' => $subjects]);
     }
 
     public function create(Request $request)
     {
-        // dd($request->all());
         $tutor = $request->all();
         $this->tutorService->create($tutor);
         return redirect()->route('tutors.list');
@@ -64,18 +61,18 @@ class TutorController extends Controller
 
     public function mail($id)
     {
-        $email = $this->tutorService->show($id)['mail'];
-        return view('mail', ['email' => $email, 'id' => $id]);
+        $tutor = $this->tutorService->show($id);
+        return view('mail', ['email' => $tutor->mail, 'name' => $tutor->name]);
     }
 
-    public function sendmail(Request $request)
-    {
-        $content = $request->content;
-        $email = $request->email;
-        Mail::raw($content, function ($message) {
-            $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
-            $message->to('piotrekszymiec@gmail.com', 'User Name');
-        });
-        return redirect()->route('tutors.list');
-    }
+    // public function sendmail(Request $request)
+    // {
+    //     $content = $request->content;
+    //     $email = $request->email;
+    //     Mail::raw($content, function ($message) {
+    //         $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+    //         $message->to('piotrekszymiec@gmail.com', 'User Name');
+    //     });
+    //     return redirect()->route('tutors.list');
+    // }
 }
